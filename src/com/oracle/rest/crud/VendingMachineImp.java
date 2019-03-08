@@ -72,6 +72,7 @@ public class VendingMachineImp implements VendingMachine {
 		apiResp.message = "Successfull transaction! Here is your change";
 		generateChange(change);
 		generateChangeResponse(changeCoins);
+		removeCoinsFromMachine(changeCoins);
 		apiResp.coins = response;
 		return apiResp;
 	}
