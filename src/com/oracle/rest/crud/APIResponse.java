@@ -1,9 +1,12 @@
 package com.oracle.rest.crud;
 
+/* This class use to generate response to HTTP request methods
+ * */
+
 public class APIResponse {
 
 	public String message;
-	
+
 	public CoinsInResponse coins;
 
 	public String getMessage() {
@@ -21,6 +24,5 @@ public class APIResponse {
 	public void setCoins(CoinsInResponse coins) {
 		this.coins = coins;
 	}
-	
-	
+
 }

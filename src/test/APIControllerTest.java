@@ -1,13 +1,12 @@
 package test;
 
+/* This is a Unit test class to test the functionality of APIController
+ * */
+
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.TreeMap;
-
 import javax.ws.rs.core.Response;
-
 import org.junit.jupiter.api.Test;
-
 import com.oracle.rest.APIController;
 import com.oracle.rest.crud.APIResponse;
 import com.oracle.rest.crud.Repository;
@@ -165,7 +164,7 @@ class APIControllerTest {
 		assertEquals(1, apiResponse.coins.fiveP);
 		assertEquals(0, apiResponse.coins.tenP);
 	}
-	
+
 	@Test
 	void postUserPayment_WhenCalled_RemovedChangeCoinsFromMachine() {
 		// Arrange
@@ -175,9 +174,7 @@ class APIControllerTest {
 		controller.postInitialiseMachine(coin);
 
 		// Act
-		Response jaxResponse = controller.postUserPayment(deposite);
-		APIResponse apiResponse = new APIResponse();
-		apiResponse = (APIResponse) jaxResponse.getEntity();
+		controller.postUserPayment(deposite);
 		TreeMap<Integer, Integer> repository = Repository.coinsInMachine;
 
 		// Assert

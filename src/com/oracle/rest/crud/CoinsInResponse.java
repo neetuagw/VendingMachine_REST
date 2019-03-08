@@ -1,5 +1,8 @@
 package com.oracle.rest.crud;
 
+/* This class use to generate response to HTTP request methods
+ * */
+
 public class CoinsInResponse {
 
 	public int fiveP;

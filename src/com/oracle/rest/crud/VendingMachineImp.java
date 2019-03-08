@@ -1,5 +1,8 @@
 package com.oracle.rest.crud;
 
+/* This class implements and defined all the CRUD functions 
+ * */
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -11,6 +14,8 @@ public class VendingMachineImp implements VendingMachine {
 	private TreeMap<Integer, Integer> mapOfCoins;
 	APIResponse apiResp = new APIResponse();
 	CoinsInResponse response = new CoinsInResponse();
+
+	// Initialising a empty Map to store the coins of change left after User payment
 	private Map<Integer, Integer> changeCoins = new HashMap<Integer, Integer>();
 	{
 		changeCoins.put(5, 0);
@@ -49,7 +54,10 @@ public class VendingMachineImp implements VendingMachine {
 
 		Repository.coinsInMachine.putAll(mapOfCoins);
 		apiResp.message = "Successfully Initialised";
+
+		// Creating API response
 		generateResponse();
+
 		apiResp.coins = response;
 		return apiResp;
 	}
@@ -59,6 +67,8 @@ public class VendingMachineImp implements VendingMachine {
 		// TODO Auto-generated method stub
 
 		Coin entity = new Coin();
+		
+		//Deposite User's coins in Vending Machine
 		Repository.coinsInMachine.put(5, Repository.coinsInMachine.get(5) + coin.fiveP);
 		Repository.coinsInMachine.put(10, Repository.coinsInMachine.get(10) + coin.tenP);
 		Repository.coinsInMachine.put(20, Repository.coinsInMachine.get(20) + coin.twentyP);
@@ -66,12 +76,19 @@ public class VendingMachineImp implements VendingMachine {
 		Repository.coinsInMachine.put(100, Repository.coinsInMachine.get(100) + coin.one);
 		Repository.coinsInMachine.put(200, Repository.coinsInMachine.get(200) + coin.two);
 
+		//Getting change amount
 		entity.change = coin.paidAmount - coin.itemCost;
 		int change = entity.change;
 
 		apiResp.message = "Successfull transaction! Here is your change";
+		
+		//Generate list of coins left after change
 		generateChange(change);
+		
+		//Generate response with change coins
 		generateChangeResponse(changeCoins);
+		
+		//Remove change coins from the machine
 		removeCoinsFromMachine(changeCoins);
 		apiResp.coins = response;
 		return apiResp;
@@ -81,15 +98,20 @@ public class VendingMachineImp implements VendingMachine {
 	public Map<Integer, Integer> generateChange(int change) {
 
 		if (change != 0) {
+			
+			//Check if the coin already exists of the value of change
 			if (Repository.coinsInMachine.containsKey(change)) {
+				
+				//Returns the greatest coin less than or equal to the given value
 				int keyCoin = Repository.coinsInMachine.floorKey(change);
-				int reminder = change / keyCoin;
-				changeCoins.put(keyCoin, reminder);
+				changeCoins.put(keyCoin, 1);
 			} else {
+				
+				//Returns the greatest coin less than or equal to the given value
 				int keyCoin = Repository.coinsInMachine.floorKey(change);
-				int reminder = change / keyCoin;
+				int quotient = change / keyCoin;
 				change = change % keyCoin;
-				changeCoins.put(keyCoin, reminder);
+				changeCoins.put(keyCoin, quotient);
 				generateChange(change);
 			}
 

@@ -1,11 +1,9 @@
 package com.oracle.rest.entity;
 
-import javax.ws.rs.DefaultValue;
-import javax.ws.rs.Produces;
-import javax.xml.bind.annotation.XmlRootElement;
+/* Entity Class
+ * */
 
-//@Produces("application/json")
-//@XmlRootElement
+
 public class Coin {
 
 	/**
