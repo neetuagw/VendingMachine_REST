@@ -7,7 +7,9 @@ This Application has implement a REST Services in Java using JAX-RS and Jersey f
  4. and remove the coins from the machine.
 
 **Technology Used**
+
 Java 8 with JERSEY
+
 Jersey is the open source, production quality, JAX-RS (JSR 311) Reference Implementation for building RESTful Web services
 
 **Prerequisites**
@@ -40,10 +42,10 @@ Maven Project Dynamic Web Module v3.0
 
 ## Assumptions
 
- - Vending Machine will only accept 5p, 10p, 20p, 50p , 1£ and 2£ coins
+ - Vending Machine will only accept 5p, 10p, 20p, 50p , 1Â£ and 2Â£ coins
  - Vending Machine items costs are rounded according to the coins it accepts. Price can only be multiples of 5. 
  -  This service can be extended to accept one and two pence.
- - Vending Machine will only provide the change in 5p, 10p, 20p, 50p , 1£ or 2£ coins.
+ - Vending Machine will only provide the change in 5p, 10p, 20p, 50p , 1Â£ or 2Â£ coins.
 
 ## Instructions to run this application
 
