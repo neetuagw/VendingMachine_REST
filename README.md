@@ -39,6 +39,13 @@ Maven Project Dynamic Web Module v3.0
  - CoinsInResponse and APIResponse : These classes used to send the right response of the API called
  - Repository : This class implements a TreeMap data structure to store the coins available in Vending Machine. This class designed to be used for Database purpose in future
  - APIControllerTest.java : This is a unit test class.
+ 
+ ## Aprroach
+
+ - Build REST service in Java using JAX-RS and Jersey. Java API for RESTful Web Services (JAX-RS), is a set of APIs to develope REST service. JAX-RS is part of the JavaEE6, and make developers to develop REST web application easily.
+ - Used Genson library to consume and produce JSON data. It automaticallys converts your request into JSON and so is your response. 
+ - Utilise TreeMap datastructure to store coins and to do CRUD operation on vending machine. The reason behind using TreeMap as it provides a direct method called floorkey() to find the greatest key less than or equal to given key. I used this method while calculating the coins of remaining amount left after user payment. 
+ - Apache Tomcat server used to run the REST service. 
 
 ## Assumptions
 
