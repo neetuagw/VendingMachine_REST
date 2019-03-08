@@ -1,0 +1,8 @@
+com\oracle\rest\APIController.class
+com\oracle\rest\crud\VendingMachineImp.class
+com\oracle\rest\crud\VendingMachine.class
+com\oracle\rest\entity\Coin.class
+test\APIControllerTest.class
+com\oracle\rest\crud\CoinsInResponse.class
+com\oracle\rest\crud\APIResponse.class
+com\oracle\rest\crud\Repository.class
